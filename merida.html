@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mérida: El Corazón de los Andes Venezolanos</title>
+  
+  <!-- Tipografías: Serif para títulos históricos, Sans para lectura limpia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Configuración del Sistema de Diseño (Tokens de Identidad de Mérida) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Lora', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            // Tonos tierra coloniales, neblina de páramo y verde pino andino
+            andes: {
+              tierra: '#7C4A32',    /* Tejas coloniales, arcilla, café andino */
+              pino: '#1E332A',      /* Bosques nublados, frailejones oscuros */
+              neblina: '#FDFCFA',   /* Fondo abierto, limpio, minimalista */
+              oro: '#D4AF37'        /* Detalles coloniales y sol de páramo */
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Suavizado de transiciones para el Navbar */
+    .nav-transition {
+      transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+    }
+  </style>
+</head>
+<body class="bg-andes-neblina font-sans text-stone-800 antialiased selection:bg-andes-tierra selection:text-white">
+
+  <!-- 1. NAVBAR TRANSPARENTE / DINÁMICO SEMÁNTICO -->
+  <!-- Nota Senior: El ID 'main-header' permite al Script alternar las clases al hacer scroll -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 nav-transition bg-transparent border-b border-white/0">
+    <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+      
+      <!-- Marca -->
+<a href="#" class="font-serif text-[14px] font-bold tracking-wide text-white transition-colors duration-300" id="header-logo">
+        🏔️ <span id="logo-text" class="text-white">Mérida</span>
+      </a>
+      
+      <!-- Menú de Navegación (Mobile-First: Oculto por defecto, visible en MD) -->
+      <nav class="hidden md:flex items-center gap-10 text-sm font-medium tracking-wide">
+        <a href="#lugares" id="nav-link-1" class="text-white hover:text-andes-oro transition-colors duration-200">Imperdibles</a>
+        <a href="#gastronomia" id="nav-link-2" class="text-white hover:text-andes-oro transition-colors duration-200">Gastronomía</a>
+        <a href="#experiencias" id="nav-link-3" class="text-white hover:text-andes-oro transition-colors duration-200">Actividades</a>
+      </nav>
+
+      <!-- Botón de Acción -->
+      <div class="hidden sm:block">
+        <a href="#explorar" class="bg-white/10 hover:bg-andes-tierra text-white font-semibold text-xs uppercase tracking-widest px-6 py-3 rounded-full border border-white/20 hover:border-andes-tierra transition-all duration-300">
+          Descubrir
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. HERO SECTION FOTOGRÁFICO IMPACTANTE -->
+  <section class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-andes-pino">
+    <!-- Imagen real de fondo con tratamiento de contraste sutil -->
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80" 
+         alt="Paisaje de los Andes Merideños" 
+         class="absolute inset-0 w-full h-full object-cover object-center opacity-75">
+    
+    <!-- Máscara de gradiente técnico para proteger la legibilidad de la UI -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-andes-neblina"></div>
+
+    <!-- Contenido Centrado Aspiracional -->
+    <div class="relative z-10 text-center max-w-4xl mx-auto px-6 space-y-6">
+      <span class="text-xs font-bold tracking-[0.3em] text-andes-oro uppercase block">Sierra Nevada de Venezuela</span>
+      <h1 class="font-serif text-4xl md:text-6xl font-normal text-white leading-tight drop-shadow-sm">
+        Mérida, donde las montañas tocan el cielo <br class="hidden md:inline"><span class="italic font-light">y las lagunas guardan la magia de los Andes.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-stone-100 font-light max-w-xl mx-auto tracking-wide leading-relaxed">
+        Donde los picos nevados rompen el cielo tropical y la historia colonial se escribe entre calles de piedra.
+      </p>
+      <div class="pt-4">
+        <a href="#lugares" class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/30 text-white hover:text-andes-oro hover:border-andes-oro transition-all duration-300 animate-bounce">
+          ↓
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CUADRÍCULA DE "LUGARES IMPERDIBLES" (ENFOQUE ABIERTO/FOTOGRÁFICO) -->
+  <!-- Nota UI/UX: Abundante espacio en blanco (py-32), tipografía limpia y grids asimétricos móviles -->
+  <section id="lugares" class="py-24 md:py-32 max-w-7xl mx-auto px-6">
+    
+    <!-- Encabezado de Sección Limpio -->
+    <div class="max-w-2xl mb-16 md:mb-24 space-y-3">
+      <span class="text-xs font-bold tracking-widest text-andes-tierra uppercase block">Destinos de Altura</span>
+      <h2 class="font-serif text-4xl md:text-5xl font-light text-andes-pino">Lugares que detienen el tiempo</h2>
+      <p class="text-stone-500 font-light text-base md:text-lg">Explora la geografía mística de Mérida, desde valles coloniales pacíficos hasta estaciones mecánicas en el corazón de las nubes.</p>
+    </div>
+
+    <!-- Grid 100% Mobile-First utilizando el sistema de rejilla nativo de Tailwind -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8">
+      
+      <!-- Tarjeta Interactiva 1: Teleférico Mukumbarí -->
+      <article class="group cursor-pointer space-y-4">
+        <div class="overflow-hidden bg-stone-100 rounded-xl aspect-[3/4] relative">
+          <img src="C:\Users\jj\Desktop\tarea3\imagenes\estacion pico espejo.jpg" 
+               alt="Teleférico de Mérida" 
+               class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+        </div>
+        <div class="px-1 flex justify-between items-start">
+          <div class="space-y-1">
+            <h3 class="font-serif text-2xl text-andes-pino group-hover:text-andes-tierra transition-colors duration-200">Sistema Mukumbarí</h3>
+            <p class="text-xs uppercase tracking-wider text-stone-400 font-medium">📍 Sierra Nevada • 4,765 msnm</p>
+          </div>
+          <span class="text-stone-300 group-hover:text-andes-tierra transition-colors duration-300 text-xl font-light">→</span>
+        </div>
+      </article>
+
+      <!-- Tarjeta Interactiva 2: Laguna de Mucubají -->
+      <article class="group cursor-pointer space-y-4">
+        <div class="overflow-hidden bg-stone-100 rounded-xl aspect-[3/4] relative">
+          <img src="C:\Users\jj\Desktop\tarea3\imagenes\Laguna_Mucubají_Mérida_Venezuela.jpg" 
+               alt="Laguna glaciar de Mucubají" 
+               class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+        </div>
+        <div class="px-1 flex justify-between items-start">
+          <div class="space-y-1">
+            <h3 class="font-serif text-2xl text-andes-pino group-hover:text-andes-tierra transition-colors duration-200">Laguna de Mucubají</h3>
+            <p class="text-xs uppercase tracking-wider text-stone-400 font-medium">📍 Páramo de Mucuchíes</p>
+          </div>
+          <span class="text-stone-300 group-hover:text-andes-tierra transition-colors duration-300 text-xl font-light">→</span>
+        </div>
+      </article>
+
+      <!-- Tarjeta Interactiva 3: San Rafael de Tabay -->
+      <article class="group cursor-pointer space-y-4 md:col-span-2 lg:col-span-1">
+        <div class="overflow-hidden bg-stone-100 rounded-xl aspect-[3/4] relative">
+          <img src="https://6a2f6048d2c53535166bdb00.imgix.net/pueblo%20acequias.jpg?w=612&h=612&ar=1%3A1&auto=enhance%2Cformat&fit=fill&fill=blur" 
+               alt="Arquitectura colonial en pueblos del páramo" 
+               class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+        </div>
+        <div class="px-1 flex justify-between items-start">
+          <div class="space-y-1">
+            <h3 class="font-serif text-2xl text-andes-pino group-hover:text-andes-tierra transition-colors duration-200">Pueblos del Páramo</h3>
+            <p class="text-xs uppercase tracking-wider text-stone-400 font-medium">📍 Ruta Colonial Transandina</p>
+          </div>
+          <span class="text-stone-300 group-hover:text-andes-tierra transition-colors duration-300 text-xl font-light">→</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 4. PIE DE PÁGINA INFORMATIVO Y ORGANIZADO -->
+  <footer class="bg-andes-pino text-stone-400 text-sm border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+      
+      <!-- Bloque de Marca -->
+      <div class="space-y-4 md:col-span-1">
+        <span class="font-serif text-2xl font-bold text-white tracking-wide">🏔️ Mérida</span>
+        <p class="text-xs text-stone-500 font-light leading-relaxed">
+          Plataforma de promoción turística e inspiración cultural. Descubre los Andes Venezolanos de forma sostenible y auténtica.
+        </p>
+      </div>
+
+      <!-- Links de Destinos -->
+      <div class="space-y-3">
+        <h4 class="text-white text-xs font-bold tracking-widest uppercase">Explorar</h4>
+        <ul class="space-y-2 text-xs font-light">
+          <li><a href="#" class="hover:text-andes-oro transition-colors">Parque Sierra Nevada</a></li>
+          <li><a href="#" class="hover:text-andes-oro transition-colors">Ruta del Frailejón</a></li>
+          <li><a href="#" class="hover:text-andes-oro transition-colors">Centro Histórico</a></li>
+        </ul>
+      </div>
+
+      <!-- Links de Utilidad -->
+      <div class="space-y-3">
+        <h4 class="text-white text-xs font-bold tracking-widest uppercase">Guía Práctica</h4>
+        <ul class="space-y-2 text-xs font-light">
+          <li><a href="#" class="hover:text-andes-oro transition-colors">Estado del Clima</a></li>
+          <li><a href="#" class="hover:text-andes-oro transition-colors">Hospedajes Boutique</a></li>
+          <li><a href="#" class="hover:text-andes-oro transition-colors">Directorio de Guías</a></li>
+        </ul>
+      </div>
+
+      <!-- Copyright e Información Legal -->
+      <div class="space-y-3">
+        <h4 class="text-white text-xs font-bold tracking-widest uppercase">Corporativo</h4>
+        <p class="text-xs text-stone-500 font-light leading-relaxed">Iniciativa Web de Desarrollo y Promoción Local.</p>
+        <div class="pt-2 text-[11px] text-stone-600 font-light">
+          &copy; 2026 Corporación de Turismo de Mérida.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 5. INTERACTIVIDAD NATIVA: SCRIPT PARA COMPORTAMIENTO DEL NAVBAR -->
+  <script>
+    const header = document.getElementById('main-header');
+    const logoText = document.getElementById('logo-text');
+    const navLinks = [
+      document.getElementById('nav-link-1'),
+      document.getElementById('nav-link-2'),
+      document.getElementById('nav-link-3')
+    ];
+
+    window.addEventListener('scroll', () => {
+      // Se activa el modo sólido al bajar más de 80px del tope
+      if (window.scrollY > 80) {
+        header.classList.remove('bg-transparent', 'border-white/0');
+        header.classList.add('bg-white/95', 'backdrop-blur-md', 'border-stone-200/80', 'shadow-sm');
+        
+        // Cambiar colores de texto a oscuros para mantener alto contraste sobre fondo blanco
+        logoText.classList.remove('text-white');
+        logoText.classList.add('text-andes-pino');
+        
+        navLinks.forEach(link => {
+          link.classList.remove('text-white');
+          link.classList.add('text-stone-600', 'hover:text-andes-tierra');
+        });
+      } else {
+        // Restaurar transparencia nativa al volver al inicio
+        header.classList.remove('bg-white/95', 'backdrop-blur-md', 'border-stone-200/80', 'shadow-sm');
+        header.classList.add('bg-transparent', 'border-white/0');
+        
+        logoText.classList.remove('text-andes-pino');
+        logoText.classList.add('text-white');
+        
+        navLinks.forEach(link => {
+          link.classList.remove('text-stone-600', 'hover:text-andes-tierra');
+          link.classList.add('text-white');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
